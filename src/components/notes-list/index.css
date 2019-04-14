@@ -1,0 +1,129 @@
+.main_list,
+.header
+{
+    text-align: center;
+}
+
+.main_list
+{
+    display: flex;
+    justify-content: space-evenly;
+    min-height: 50vh;
+}
+
+.notes-list
+{
+    width: 50%;
+    border-right: 1px solid gainsboro;
+}
+
+.note
+{
+    width: 300px;
+    margin: 10px;
+    flex-shrink: 0;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+.note:nth-child(2n+1) {
+    float: left;
+    clear: left;
+}
+
+.note:nth-child(2n) {
+    float: right;
+    clear: right;
+}
+
+.note__title,
+.note__description,
+.note__footer,
+.note__created-date,
+.note__status
+{
+    padding: 10px 0;
+    margin: 0;
+}
+
+.note__description
+{
+    text-align: left;
+    font-size: .9em;
+    border-top: 1px solid gainsboro;
+}
+
+.note__footer
+{
+    display: flex;
+    align-items: center;
+    border-top: 1px solid gainsboro;
+    justify-content: space-between;
+}
+
+.note__title
+{
+    flex-grow: 1;
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.note__status
+{
+    width: 160px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.creator
+{
+    width: 400px;
+    height: 250px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.creator__input
+{
+    display: flex;
+    padding: 5px 0;
+}
+
+.creator__field-title
+{
+    width: 140px;
+    flex-shrink: 0;
+    text-align: left;
+}
+
+.creator__field-value
+{
+    width: 100%;
+}
+
+.creator__validation,
+.creator__field-title_warning
+{
+    color: #d00;
+}
+
+.creator__validation
+{
+    height: 1.5em;
+}
+
+.creator__field-value,
+.creator__button
+{
+    font-size: 16px;
+}
+
+.creator__button
+{
+    width: 120px;
+    height: 30px;
+    border-radius: 3px;
+}

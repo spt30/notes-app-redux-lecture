@@ -1,0 +1,21 @@
+.note-page
+{
+    text-align: left;
+    padding: 0 40px;
+}
+
+.note-page__field
+{
+    width: 400px;
+    font-size: 16px;
+}
+
+.note-page__title,
+.note-page__description,
+.note-page__created-date,
+.note-page__status
+{
+    font-size: 16px;
+    width: 100%;
+    margin: 10px 0;
+}
