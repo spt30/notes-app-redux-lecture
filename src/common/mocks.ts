@@ -21,6 +21,6 @@ export const initialNotes: INote[] = [
             '// @ts-check – встроенная директива VSCode, которая проверяет доступную типизацию в js-файлах',
         id: 3,
         status: NOTE_STATUS.old,
-        title: 'Почитать про // @ts-check'
+        title: 'Рассказать про // @ts-check'
     }
 ];
