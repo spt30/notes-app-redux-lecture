@@ -2,7 +2,7 @@ import { Reducer } from 'redux';
 
 import { ApplicationState } from '.';
 import { initialNotes } from '../common/mocks';
-import { IAddNotePayload, IChangeStatusPayload, IEditNotePayload, IAction, ACTIONS, INote } from '../common/types';
+import { IAddNotePayload, IChangeStatusPayload, IEditNotePayload, IAction, ACTIONS, INote, ExtendRandomNumber } from '../common/types';
 
 export const initialState = {
     notes: initialNotes
@@ -14,13 +14,14 @@ const notesReducer = (state: ApplicationState = initialState, action: IAction) =
 
     switch (type) {
         case ACTIONS.ADD_NOTE: {
-            const { note: newPureNote } = payload as IAddNotePayload;
+            const { note: newPureNote, randomAsyncNumber } = payload as ExtendRandomNumber<IAddNotePayload>;
 
             const id = Math.max(...notes.map((note: INote) => note.id)) + 1;
 
-            const newNote = {
+            const newNote: INote = {
                 ...newPureNote,
-                id
+                id,
+                randomAsyncNumber
             };
 
             return {
@@ -29,8 +30,8 @@ const notesReducer = (state: ApplicationState = initialState, action: IAction) =
             };
         }
         case ACTIONS.EDIT_NOTE: {
-            const { id, newNote } = payload as IEditNotePayload;
-            const noteWithId = { ...newNote, id };
+            const { id, newNote, randomAsyncNumber } = payload as ExtendRandomNumber<IEditNotePayload>;
+            const noteWithId = { ...newNote, id, randomAsyncNumber };
 
             const noteIndex = notes.findIndex((note: INote) => note.id === id);
 

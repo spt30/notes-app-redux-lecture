@@ -6,14 +6,16 @@ export const initialNotes: INote[] = [
         description: '',
         id: 1,
         status: NOTE_STATUS.actual,
-        title: 'Проверить домашки'
+        title: 'Проверить домашки',
+        randomAsyncNumber: 1
     },
     {
         created: new Date('2019-04-03T16:59:59.834Z'),
         description: 'Не забыть показать Redux DevTools',
         id: 2,
         status: NOTE_STATUS.actual,
-        title: 'Прочитать лекцию про Redux'
+        title: 'Прочитать лекцию про Redux',
+        randomAsyncNumber: 1
     },
     {
         created: new Date('2019-01-22T21:05:16.356Z'),
@@ -21,6 +23,7 @@ export const initialNotes: INote[] = [
             '// @ts-check – встроенная директива VSCode, которая проверяет доступную типизацию в js-файлах',
         id: 3,
         status: NOTE_STATUS.old,
-        title: 'Рассказать про // @ts-check'
+        title: 'Рассказать про // @ts-check',
+        randomAsyncNumber: 1
     }
 ];

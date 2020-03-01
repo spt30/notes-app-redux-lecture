@@ -13,6 +13,7 @@ export interface IPureNote {
 
 export interface INote extends IPureNote {
     id: number;
+    randomAsyncNumber: number;
 }
 
 // Все типы Action'ов
@@ -46,3 +47,10 @@ export interface IAction {
         | IEditNotePayload
         | IChangeStatusPayload;
 }
+
+// Расширяет интерфейс для асинхронности
+export interface RandomAsyncNumber {
+    randomAsyncNumber: number;
+}
+
+export type ExtendRandomNumber<T> = RandomAsyncNumber & T;

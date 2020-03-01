@@ -1,13 +1,13 @@
 import React, { ChangeEvent, Component, Fragment, MouseEvent as ReactMouseEvent } from 'react';
-
+import { withRouter, RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
+
 import { INITIAL_NOTE, NOTE_STATUS_NAME } from '../../common/consts';
 import { IPureNote, NOTE_STATUS } from '../../common/types';
 
 import { ApplicationState } from '../../store';
-import { addNote, changeStatus } from '../../store/actions';
+import { addNoteRequest, changeStatus } from '../../store/actions';
 
-import { withRouter, RouteComponentProps } from 'react-router';
 import './index.css';
 
 interface OwnState {
@@ -38,7 +38,7 @@ class NotesList extends Component<Props, OwnState> {
                 <main className="main_list">
                     <div className="notes-list">
                         {notes &&
-                            notes.map(({ id, title, description, status, created }) => (
+                            notes.map(({ id, title, description, status, created, randomAsyncNumber }) => (
                                 <div className="note" key={id}>
                                     <h3 className="note__title" onClick={this.showNote(id)}>
                                         {title}
@@ -46,6 +46,7 @@ class NotesList extends Component<Props, OwnState> {
                                     {description && (
                                         <div className="note__description">{description}</div>
                                     )}
+                                    <div className="note__description">Случайное число: {randomAsyncNumber}</div>
                                     <footer className="note__footer">
                                         <div className="note__created-date">
                                             {created.toLocaleDateString()}
@@ -186,11 +187,11 @@ function mapStateToProps(state: ApplicationState) {
 }
 
 const mapDispatchToProps = {
-    addNote,
+    addNote: addNoteRequest,
     changeStatus
 };
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withRouter(NotesList));
+)(withRouter(NotesList) as any);
