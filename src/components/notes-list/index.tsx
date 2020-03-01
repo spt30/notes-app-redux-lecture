@@ -9,6 +9,7 @@ import { addNote, changeStatus } from '../../store/actions';
 
 import { withRouter, RouteComponentProps } from 'react-router';
 import './index.css';
+import LastStatus from '../last-status';
 
 interface OwnState {
     validation: boolean | string;
@@ -34,6 +35,7 @@ class NotesList extends Component<Props, OwnState> {
             <Fragment>
                 <header className="header">
                     <h1>Мои заметки</h1>
+                    <LastStatus />
                 </header>
                 <main className="main_list">
                     <div className="notes-list">
